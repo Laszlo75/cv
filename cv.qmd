@@ -1,0 +1,148 @@
+---
+title: "Laszlo Szabo's CV"
+author:
+  firstname: Laszlo
+  lastname: Szabo
+  # address: "Rämistrasse 101, CH-8092 Zürich, Switzerland, Zürich"
+  position: Consultant Transplant Surgeon
+  contacts:
+    - icon: fa envelope
+      text: Laszlo.Szabo@wales.nhs.uk
+      url: "mailto:ae@example.com"
+    - icon: fa brands orcid
+      text: 0000-0002-6881-1542
+      url: https://orcid.org/0000-0002-6881-1542
+    - icon: fa brands github
+      text: Laszlo75
+      url: https://github.com/Laszlo75
+    - icon: fa brands linkedin
+      text: drszabolaszlo
+      url: https://linkedin.com/in/drszabolaszlo
+    # - icon: fa brands x-twitter
+    #   text: twitter
+    #   url: https://twitter.com/example
+style:
+   color-accent: "005EB8"
+   font-header: "SF Pro Text"
+   font-text: "SF Pro Text"
+format: awesomecv-typst
+
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+# install.packages("typstcv", repos = "https://kazuyanagimoto.r-universe.dev")
+library(typstcv)
+```
+
+## Education
+
+```{r}
+#| label: education
+#| output: asis
+
+education <- data.frame(
+  title = c("Medical Doctor", "Specialist in Surgery (CCT equivalent)"),
+  location = c("Debrecen, Hungary", "Debrecen, Hungary"),
+  start = as.Date(c("1993-01-01", "1999-01-01")),
+  end = as.Date(c("1999-01-01", "2006-01-01")),
+  # date = c("1999", "2006"),
+  description = c("Medical and Health Science Centre, University of Debrecen, Hungary", "Hungarian National Board of Surgery")
+)
+
+write.csv(education, "assets/data/education.csv", row.names = FALSE)
+
+education |>
+  format_date(end = "end", date_format = "%Y", sort_by = "end") |>
+  resume_entry()
+
+```
+
+<!-- ## Publications -->
+
+```{r}
+#| label: publications
+#| include: false
+#| output: asis
+resume_entry(pub)
+```
+
+## Work Experience
+
+```{r}
+#| label: work experience
+#| output: asis
+
+work <- data.frame(
+  title = c(
+    "Consultant Transplant Surgeon", 
+    "Clinical Fellow in Transplant Surgery and Organ Retrieval",
+    "Surgeon, Assistant Lecturer",
+    "Surgical Trainee"),
+  location = c(
+    "Cardiff, UK", 
+    "Cardiff, UK", 
+    "Debrecen, Hungary", 
+    "Debrecen, Hungary"),
+  start = as.Date(c(
+    "2012-09-17", 
+    "2011-01-01",
+    "2006-01-01",
+    "1999-10-01")),
+  end = as.Date(c(
+    "", 
+    "2012-09-16",
+    "2011-01-01",
+    "2006-01-01")),
+  # date = c("2018 - present", "2006 - 2018"),
+  description = c(
+    "Cardiff Transplant Unit, Cardiff and Vale University Health Board",
+    "Cardiff Transplant Unit, Cardiff and Vale University Health Board",
+    "Institute of Surgery, Medical and Health Science Centre, University of Debrecen",
+    "Institute of Surgery, Medical and Health Science Centre, University of Debrecen")
+)
+work |>
+  format_date(end = "end", date_format = "%Y", sort_by = "start") |>
+  resume_entry()
+```
+
+<!-- ## Awards -->
+
+```{r}
+#| output: asis
+#| include: false
+# resume_entry(award, details = c("detail1", "detail2"))
+#resume_entry(award, details = grep("^detail", names(award)))
+
+
+```
+
+## Roles
+
+```{r}
+#| output: asis
+```
+
+## Skills
+
+```{r}
+#| output: asis
+
+skill <- data.frame(
+  title = c("Surgical Skills", "Languages", "Data Science"),
+  description = c("kidney and pancreas transplantation, organ retrieval, normothermic regional perfusion, vascular access", "Hungarian (native), English (fluent), French (basic)", "R, RStudio, Quarto, Typst")
+)
+resume_entry(skill)
+
+# skill
+```
+
+\newpage
+
+```{=typst}
+
+#bibliography("assets/my-publication-list.bib", title: "Publications", full: true)
+```
