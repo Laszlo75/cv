@@ -34,6 +34,7 @@ execute:
 ---
 
 ```{r}
+
 # install.packages("typstcv", repos = "https://kazuyanagimoto.r-universe.dev")
 library(typstcv)
 ```
@@ -53,7 +54,7 @@ education <- data.frame(
   description = c("Medical and Health Science Centre, University of Debrecen, Hungary", "Hungarian National Board of Surgery")
 )
 
-write.csv(education, "assets/data/education.csv", row.names = FALSE)
+# write.csv(education, "assets/data/education.csv", row.names = FALSE)
 
 education |>
   format_date(end = "end", date_format = "%Y", sort_by = "end") |>
