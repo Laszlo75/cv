@@ -3,7 +3,7 @@ title: "Laszlo Szabo's CV"
 author:
   firstname: Laszlo
   lastname: Szabo
-  # address: "Rämistrasse 101, CH-8092 Zürich, Switzerland, Zürich"
+  address: "Cardiff and Vale University HB, Cardiff, UK"
   position: Consultant Transplant Surgeon
   contacts:
     - icon: fa envelope
