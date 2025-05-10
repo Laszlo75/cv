@@ -1,4 +1,5 @@
-#import "@preview/fontawesome:0.1.0": *
+// Import FontAwesome with a newer version
+#import "@preview/fontawesome:0.5.0": *
 
 //------------------------------------------------------------------------------
 // Style
@@ -46,7 +47,7 @@ $endif$
     #if parts.len() == 2 {
       fa-icon(parts.at(1), fill: color-darknight)
     } else if parts.len() == 3 and parts.at(1) == "brands" {
-      fa-icon(parts.at(2), fa-set: "Brands", fill: color-darknight)
+      fa-icon(parts.at(2), font: "Font Awesome 6 Brands", fill: color-darknight)
     } else {
       assert(false, "Invalid fontawesome icon string")
     }
@@ -173,7 +174,7 @@ $endif$
         style: "normal",
         font: (font-header),
       )
-      #text(fill: color-gray, weight: "thin")[#firstname]
+      #text(fill: color-gray, weight: "light")[#firstname]
       #text(weight: "bold")[#lastname]
     ]
   ]
@@ -368,7 +369,7 @@ $endif$
 #let resume(
   title: "CV",
   author: (:),
-  date: datetime.today().display("[month repr:long] [day], [year]"),
+  date: datetime.today().display("[day] [month repr:long] [year]"),
   profile-photo: "",
   body,
 ) = {
@@ -388,7 +389,7 @@ $endif$
   set page(
     paper: "a4",
     margin: (left: 15mm, right: 15mm, top: 10mm, bottom: 10mm),
-    footer: [
+    footer: context [
       #set text(
         fill: gray,
         size: 8pt,
@@ -458,4 +459,3 @@ $endif$
                 profile-photo: profile-photo,)
   body
 }
-

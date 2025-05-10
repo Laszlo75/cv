@@ -8,7 +8,7 @@ author:
   contacts:
     - icon: fa envelope
       text: Laszlo.Szabo@wales.nhs.uk
-      url: "mailto:ae@example.com"
+      url: "mailto:Laszlo.Szabo@wales.nhs.uk"
     - icon: fa brands orcid
       text: 0000-0002-6881-1542
       url: https://orcid.org/0000-0002-6881-1542
@@ -34,7 +34,7 @@ execute:
 ---
 
 ```{r}
-
+#| label: load package
 # install.packages("typstcv", repos = "https://kazuyanagimoto.r-universe.dev")
 library(typstcv)
 ```
@@ -51,7 +51,10 @@ education <- data.frame(
   start = as.Date(c("1993-01-01", "1999-01-01")),
   end = as.Date(c("1999-01-01", "2006-01-01")),
   # date = c("1999", "2006"),
-  description = c("Medical and Health Science Centre, University of Debrecen, Hungary", "Hungarian National Board of Surgery")
+  description = c(
+    "Medical and Health Science Centre, University of Debrecen, Hungary",
+    "Hungarian National Board of Surgery"
+  )
 )
 
 # write.csv(education, "assets/data/education.csv", row.names = FALSE)
@@ -62,13 +65,54 @@ education |>
 
 ```
 
-<!-- ## Publications -->
+## Qualifications
 
 ```{r}
-#| label: publications
-#| include: false
+#| label: qualifications
 #| output: asis
-resume_entry(pub)
+
+qualifications <- data.frame(
+  title = c(
+    "European Diploma in Transplantation Surgery",
+    "European Diploma in Transplantation Surgery"
+  ),
+  location = c(
+    "Brussels",
+    "Paris"
+  ),
+  date = c("2015", "2009"),
+  description = c(
+    "European Board of Surgery, Division of Transplantation",
+    "European Board of Surgery, Division of Transplantation"
+  )
+)
+
+# Here's how to add the detail column with the specified items:
+
+qualifications <- data.frame(
+  title = c(
+    "European Diploma in Transplantation Surgery",
+    "European Diploma in Transplantation Surgery"
+  ),
+  location = c(
+    "Brussels",
+    "Paris"
+  ),
+  date = c("2015", "2009"),
+  description = c(
+    "European Board of Surgery, Division of Transplantation",
+    "European Board of Surgery, Division of Transplantation"
+  ),
+  detail = c(
+    "Module 3: Pancreas Transplantation",
+    "Module 1: Multiorgan retrieval\n- Module 2: Kidney Transplantation"
+  )
+)
+
+
+qualifications |>
+  resume_entry(details = "detail")
+
 ```
 
 ## Work Experience
@@ -79,62 +123,109 @@ resume_entry(pub)
 
 work <- data.frame(
   title = c(
-    "Consultant Transplant Surgeon", 
+    "Consultant Transplant Surgeon",
     "Clinical Fellow in Transplant Surgery and Organ Retrieval",
     "Surgeon, Assistant Lecturer",
-    "Surgical Trainee"),
+    "Surgical Trainee"
+  ),
   location = c(
-    "Cardiff, UK", 
-    "Cardiff, UK", 
-    "Debrecen, Hungary", 
-    "Debrecen, Hungary"),
+    "Cardiff, UK",
+    "Cardiff, UK",
+    "Debrecen, Hungary",
+    "Debrecen, Hungary"
+  ),
   start = as.Date(c(
-    "2012-09-17", 
+    "2012-09-17",
     "2011-01-01",
     "2006-01-01",
-    "1999-10-01")),
+    "1999-10-01"
+  )),
   end = as.Date(c(
-    "", 
+    "",
     "2012-09-16",
     "2011-01-01",
-    "2006-01-01")),
+    "2006-01-01"
+  )),
   # date = c("2018 - present", "2006 - 2018"),
   description = c(
     "Cardiff Transplant Unit, Cardiff and Vale University Health Board",
     "Cardiff Transplant Unit, Cardiff and Vale University Health Board",
     "Institute of Surgery, Medical and Health Science Centre, University of Debrecen",
-    "Institute of Surgery, Medical and Health Science Centre, University of Debrecen")
+    "Institute of Surgery, Medical and Health Science Centre, University of Debrecen"
+  )
 )
 work |>
   format_date(end = "end", date_format = "%Y", sort_by = "start") |>
   resume_entry()
 ```
 
-<!-- ## Awards -->
+## Leadership Roles
 
 ```{r}
+#| label: roles
 #| output: asis
-#| include: false
-# resume_entry(award, details = c("detail1", "detail2"))
-#resume_entry(award, details = grep("^detail", names(award)))
 
+roles <- data.frame(
+  title = c(
+    "Transplant and Vascular Access Lead with the Welsh Kidney Network",
+    "Clinical Lead for Governance",
+    "Clinical Lead for Organ Utilisation"
+  ),
+  date = c(
+    "2024 - present",
+    "2021 - present",
+    "2020 - present"
+  )
+)
+
+resume_entry(roles)
 
 ```
 
-## Roles
+\newpage
+
+## Research
+
+**Principal Investigator**
 
 ```{r}
+#| label: research
 #| output: asis
+
+research_pi <- data.frame(
+  title = c(
+    "PITHIA",
+    "POWAR",
+    "COPE-COMPARE",
+    "COPE-POMP",
+    "PAVE"
+  ),
+  description = c(
+    "Pre-implantation Trial of Histopathology In renal Allografts",
+    "Prophylaxis of Wound Infections - Antibiotics in Renal Donation",
+    "Oxygenated versus standard cold perfusion preservation in  kidney transplantation",
+    "'in house' pre-implantation oxygenated hypothermic machine perfusion reconditioning after cold storage versus cold storage alone in expanded criteria donor (ECD) kidneys from brain dead donors",
+    "Paclitaxel-assisted balloon angioplasty of venous stenosis in haemodialysis access"
+  )
+)
+
+resume_entry(research_pi)
+
 ```
 
 ## Skills
 
 ```{r}
+#| label: skills
 #| output: asis
 
 skill <- data.frame(
   title = c("Surgical Skills", "Languages", "Data Science"),
-  description = c("kidney and pancreas transplantation, organ retrieval, normothermic regional perfusion, vascular access", "Hungarian (native), English (fluent), French (basic)", "R, RStudio, Quarto, Typst")
+  description = c(
+    "kidney and pancreas transplantation, organ retrieval, normothermic regional perfusion, vascular access",
+    "Hungarian (native), English (fluent), French (basic)",
+    "R, RStudio, Quarto, Typst, Power BI"
+  )
 )
 resume_entry(skill)
 
@@ -144,6 +235,5 @@ resume_entry(skill)
 \newpage
 
 ```{=typst}
-
 #bibliography("assets/my-publication-list.bib", title: "Publications", full: true)
 ```
