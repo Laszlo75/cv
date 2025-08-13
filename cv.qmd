@@ -235,5 +235,5 @@ resume_entry(skill)
 \newpage
 
 ```{=typst}
-#bibliography("assets/my-publication-list.bib", title: "Publications", full: true)
+#bibliography("assets/my-publication-list.bib", title: "Publications", full: true, style: "/assets/apa-cv.csl")
 ```
