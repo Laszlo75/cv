@@ -32,3 +32,16 @@ In FontAwesome 0.5.0:
 - The value needs to be the full font name "Font Awesome 6 Brands" instead of just "Brands"
 
 This change should resolve the error message you were seeing. You can now compile your CV with FontAwesome 0.5.0 without encountering the "unexpected argument: fa-set" error.
+
+## Update to FontAwesome 0.6.0 (Font Awesome 7)
+
+Updated the template to use FontAwesome 0.6.0, which is based on Font Awesome 7:
+
+1. Changed import to `@preview/fontawesome:0.6.0` in `typst-template.typ`
+2. Updated font reference from "Font Awesome 6 Brands" to "Font Awesome 7 Brands" in the `parse_icon_string` function
+
+**Important**: FontAwesome 0.6.0 requires Font Awesome 7 fonts to be installed on your system:
+- Download from https://fontawesome.com/download
+- Install the OTF files for "Font Awesome 7 Free" and "Font Awesome 7 Brands"
+
+If you see warnings like "unknown font family: font awesome 7 free" or "unknown font family: font awesome 7 brands", it means these fonts are not installed on your system. The CV will still compile using fallback rendering, but for proper icon display, you should install the Font Awesome 7 fonts.
