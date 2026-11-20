@@ -1,3 +1,8 @@
+> [!NOTE]
+> **This repository is archived and no longer updated.** My CV now lives on my website:
+> [lszabo.me/resume.html](https://lszabo.me/resume.html) ([PDF](https://lszabo.me/images/cv.pdf)).
+> Its source is in [Laszlo75/portfolio-website](https://github.com/Laszlo75/portfolio-website).
+
 # Curriculum Vitae
 
 This repository contains the source files for building my CV using the [typstcv](https://github.com/kazuyanagimoto/typstcv) extension for Quarto.  The project relies on Quarto's Typst engine and a custom template to create a nicely formatted PDF.
